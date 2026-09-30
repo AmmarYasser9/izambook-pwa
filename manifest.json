@@ -1,0 +1,15 @@
+{
+  "name": "IzamBook",
+  "short_name": "IzamBook",
+  "start_url": "APPS_SCRIPT_URL_هنا",
+  "display": "standalone",
+  "background_color": "#0a0d14",
+  "theme_color": "#1a56db",
+  "icons": [
+    {
+      "src": "BASE64_OR_DIRECT_LINK_للأيقونة",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
