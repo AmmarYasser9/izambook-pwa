@@ -5,14 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IzamBook</title>
   
-  <!-- 1. ربط الـ Manifest للأندرويد -->
+  <!-- ربط ملف الـ Manifest واللوجو -->
   <link rel="manifest" href="manifest.json">
-  
-  <!-- 2. أيقونة الأندرويد العادية -->
+  <link rel="apple-touch-icon" href="logo.png">
   <link rel="icon" href="logo.png">
-  
-  <!-- 3. أيقونة الآيفون بس (من غير أي تعقيدات) -->
-  <link rel="apple-touch-icon" href="apple-icon.png">
   
   <style>
     body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background-color: #0a0d14; }
@@ -21,12 +17,19 @@
 </head>
 <body>
   
-  <!-- لينك السيستم بتاعك (زي ما كان شغال بالضبط بدون أي إضافات) -->
-  <iframe src="https://script.google.com/macros/s/AKfycbxNsBF4k0j7WeNDGJNCdF-IFMBC1mRMy9uadr1QzjjJeAC8vTBFxr7OPCNSluGaQ9gk/exec"></iframe>
+  <!-- ⚠️ حط هنا اللينك الطويل بتاع Google Apps Script (اللي آخره /exec) -->
+  <iframe src="https://script.google.com/a/macros/izam.co/s/AKfycbxNsBF4k0j7WeNDGJNCdF-IFMBC1mRMy9uadr1QzjjJeAC8vTBFxr7OPCNSluGaQ9gk/exec"></iframe>
 
   <script>
+    // تفعيل الـ Service Worker عشان الموبايل يرضى يسطبه كأبلكيشن
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('sw.js');
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js').then(reg => {
+          console.log('Service Worker Registered!', reg);
+        }).catch(err => {
+          console.log('Service Worker registration failed: ', err);
+        });
+      });
     }
   </script>
 </body>
